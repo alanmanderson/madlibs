@@ -15,7 +15,7 @@ class StoryController extends Controller
     
     public function store(Request $request){
         $story = Story::create(['template_id' => $request->input('template_id')]);
-        $this->showPrompts($story);
+        return redirect('/stories/'.$story->id.'/prompts');
     }
     
     public function showPrompts(Story $story){
