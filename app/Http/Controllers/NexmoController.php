@@ -17,7 +17,7 @@ class NexmoController extends Controller
                 throw new \Exception('Invalid message format');
             }
             $answer = Answer::create(['story_id' => $storyId, 'prompt_id' => $promptId, 'text' => $suggestion]);
-            dd($answer);
+            return $answer;
         }
     }
 }
