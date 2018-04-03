@@ -4,6 +4,7 @@
     </head>
     <body>
         <form method="post" action="/stories">
+        	@csrf
         	<select name="template_id">
         		@foreach($templates as $template)
         		    <option value="{{$template->id}}">{{$template->title}}</option>

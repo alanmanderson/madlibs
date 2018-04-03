@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Story;
 use App\Models\Template;
+use App\Services\TextFormatter;
 
 class StoryController extends Controller
 {
@@ -22,6 +23,8 @@ class StoryController extends Controller
     }
     
     public function show(Story $story){
-        return view('show', []);
+        $formatter = new TextFormatter;
+        $body = $formatter->format($story->template->text, $story->answers);
+        return view('story.show', ['title' => $story->template->title, 'body' => $body]);
     }
 }
