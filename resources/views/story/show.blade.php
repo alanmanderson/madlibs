@@ -20,6 +20,10 @@
                 width: 700px;
                 margin: auto;
             }
+            
+            span {
+                text-decoration:underline;
+            }
         </style>
     </head>
     <body>

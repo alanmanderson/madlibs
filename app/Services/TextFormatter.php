@@ -12,7 +12,7 @@ class TextFormatter{
             });
             if ($curVals->count() == 0) break;
             $input = $curVals->random(1)->first();
-            $template = str_replace('{{'.$input->prompt->ordinal_rank.'}}', $input->text, $template);
+            $template = str_replace('{{'.$input->prompt->ordinal_rank.'}}', '<span>'.$input->text.'</span>', $template);
             $counter++;
         }
         return $template;
