@@ -4,16 +4,10 @@ namespace App\Services;
 use Illuminate\Database\Eloquent\Collection;
 
 class TextFormatter{
-    public function format(string $template, Collection $inputs){
-        $counter = 1;
-        while(true){
-            $curVals = $inputs->filter(function ($value, $Key) use ($counter){
-                return $value->prompt->ordinal_rank == $counter;
-            });
-            if ($curVals->count() == 0) break;
-            $input = $curVals->random(1)->first();
-            $template = str_replace('{{'.$input->prompt->ordinal_rank.'}}', '<span>'.$input->text.'</span>', $template);
-            $counter++;
+    public function format(string $template, array $inputs){
+	$selectedValues = [];
+        foreach ($inputs as $rank => $text){
+            $template = str_replace('{{'.$rank.'}}', '<span>'.$text.'</span>', $template);
         }
         return $template;
     }

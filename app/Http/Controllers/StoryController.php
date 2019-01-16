@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Story;
 use App\Models\Template;
 use App\Services\TextFormatter;
+use App\Services\InputSelector;
 
 class StoryController extends Controller
 {
@@ -23,8 +24,11 @@ class StoryController extends Controller
     }
     
     public function show(Story $story){
+        $inputSelector = new InputSelector;
+        $inputs = $inputSelector->select($story->answers);
         $formatter = new TextFormatter;
-        $body = $formatter->format($story->template->text, $story->answers);
-        return view('story.show', ['title' => $story->template->title, 'body' => $body]);
+        $body = $formatter->format($story->template->text, $inputs);
+        $title = $formatter->format($story->template->title, $inputs);
+        return view('story.show', ['title' => $title, 'body' => $body]);
     }
 }

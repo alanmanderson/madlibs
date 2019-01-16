@@ -28,7 +28,7 @@
     </head>
     <body>
       <div class="content">
-        <h1>{{ $title }}</h1>
+        <h1>{!! $title !!}</h1>
         <h3>{!! $body !!}
       </div>
     </body>
