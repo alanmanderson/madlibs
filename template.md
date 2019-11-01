@@ -1,0 +1,1 @@
+And it came to pass that I, {{1}}, said unto my {{2}}: I will go and {{3}} the {{4}} which {{5}} hath commanded, for I know {{5}} giveth no {{4}} unto {{6}}, save he shall prepare a way for them that they may {{3}} the thing which he commandeth them.

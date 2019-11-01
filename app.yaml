@@ -5,7 +5,18 @@ runtime_config:
   document_root: 
     public
 
+skip_files: -.env
+
 env_variables: 
   APP_LOG: errorlog 
   APP_KEY: "base64:HhTYZZkJVPIN0zHNJmNB80SKT8gtwBHaOhqGT//BFtY=" 
-  STORAGE_DIR: /tmp 
+  STORAGE_DIR: /tmp
+  DB_HOST: localhost
+  DB_DATABASE: madlibs
+  DB_USERNAME: madlibs
+  DB_PASSWORD: u3Q8REkeHMNA5sT
+  DB_SOCKET: "/cloudsql/madlibs-200006:us-central1:madlibs"
+  DB_PORT: "3306"
+
+beta_settings:
+  cloud_sql_instances: "madlibs-200006:us-central1:madlibs" 
